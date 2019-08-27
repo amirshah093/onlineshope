@@ -6,14 +6,36 @@ import ShopPage from './pages/Shop/shop-page';
 import Header from './components/header'
 import ContactPage from '../src/pages/contact/contact-page'
 import SignInAndSignUp from './pages/Signin-and-signup/Signin-and-signup';
+import {auth} from './firebase/firebase-util';
 
 
 
 
-const App =()=> {
-  return (
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state={
+      currentuser: null
+    }
+  }
+
+  unsubscribFromAuth = null;
+
+  componentDidMount(){
+    auth.onAuthStateChanged(user =>{
+      this.setState({currentuser:user});
+      console.log(user);
+    })
+  }
+
+  componentWillUnmount(){
+    this.unsubscribFromAuth();
+  }
+
+  render(){
+    return (
     <div>
-    <Header />
+    <Header currentuser={this.state.currentuser}/>
     <Switch>
       <Route exact  path='/' component={HomePage}/>
       <Route exact  path='/shop' component={ShopPage}/>
@@ -22,6 +44,7 @@ const App =()=> {
     </Switch>
     </div>
   );
+  }
 }
 
 export default App;
