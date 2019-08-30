@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom';
 import {auth} from '../firebase/firebase-util'
 import {ReactComponent as Logo } from '../assets/crown.svg';
 import { connect } from 'react-redux';
+import CartIcon from './cart-icon/cart-icon';
+import CardDropdown from '../components/cart-dropdown/cart-dropdown'
 
 const Header =({currentuser}) =>(
     <div className='header'>
@@ -28,7 +30,9 @@ const Header =({currentuser}) =>(
             <Link className='option' to= '/contact'>
             CONTACT
             </Link>
+            <CartIcon />
         </div>
+        <CardDropdown />
     </div>
 );
 

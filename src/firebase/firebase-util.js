@@ -5,13 +5,7 @@ import 'firebase/auth';
 
 const config =
     {
-        apiKey: "AIzaSyCbOMHqnUZXndf9m1ExeuJOa1Xu6Ys-ZVs",
-        authDomain: "onlinshoping-db.firebaseapp.com",
-        databaseURL: "https://onlinshoping-db.firebaseio.com",
-        projectId: "onlinshoping-db",
-        storageBucket: "",
-        messagingSenderId: "750729150562",
-        appId: "1:750729150562:web:d1b09894423b6cad"
+
       };
 
       export const createUserProfileDocument = async (userAuth, additionalData) =>{
